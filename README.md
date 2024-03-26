@@ -9,4 +9,3 @@
 ```bash
  <source src="https://s3.vslconvert.com/vsl/COSTA%20RICA%20IN%204K%2060fps%20HDR%20%28ULTRA%20HD%29.mp4" type="video/mp4" />
  ```
- 
