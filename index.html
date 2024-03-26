@@ -1,0 +1,440 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+
+<head>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<link rel="stylesheet" href="https://cdn.plyr.io/3.6.8/plyr.css" />
+  <meta charset="UTF-8">
+	<title>VSL CONVERT</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet">
+</head>
+<body style="rgb(241, 245, 249) !important;" class="page-template page-template-elementor_canvas page page-id-37 elementor-default elementor-template-canvas elementor-kit-8 elementor-page elementor-page-37">
+	
+<style>
+					/* ESTILO DA PAGINA	(NAO É IMPORTANTE PARA O PLAYER)*/
+.box{
+    display: flex;
+    text-align: center;
+    position: relative;
+	margin: 5px;
+    padding: 0.25rem;
+    padding-top: 0.2rem;
+    background-color: #ffffff;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0.5rem;
+    gap: 0.75rem;
+    box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.4);
+    padding-bottom: 60px;
+  }
+
+  .box h1{
+      line-height: 1.2em;
+      color: #a06cf7;
+      margin: 5px 0;
+      font-size:24px;
+  }
+  .box h2{
+      font-size: 1rem;
+      line-height: 1.2em;
+      color: rgb(71, 85, 105);
+  }
+
+  </style>
+
+	<div class="box">	
+		<div  style="margin-top:0px;"
+                    class="elementor-element elementor-element-f14370e elementor-widget elementor-widget-text-editor"
+                    data-id="f14370e"
+                    data-element_type="widget"
+                    data-widget_type="text-editor.default">
+                <div class="elementor-widget-container">
+                 
+				  <div>
+					  <b><p style="text-align:center; font-size:19px; font-weight:bolder;line-height: 25px; margin: 20px 0 0 0px;">
+						<!-- ATENÇÃO! HEADLINE<br> -->
+						<span style="font-family: 'Poppins', sans-serif;color:black;">Faça o seu video<span>
+						<span style="font-family: 'Poppins', sans-serif;color: #8F58C5;">Converter até 10x mais</span>
+						<span style="font-family: 'Poppins', sans-serif;color: black;">Com o nosso player de video</span>
+						<br>
+					</p></b>
+				  </div>
+				
+                </div>
+              </div>
+			</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-64283ec2 elementor-section-boxed elementor-section-height-default elementor-section-height-default" style="padding:0 ; width: 100%;" data-id="64283ec2" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;gradient&quot;}">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-2c401c25" data-id="2c401c25" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+				
+				<div class="elementor-element elementor-element-54bbcc93 elementor-widget elementor-widget-html" data-id="54bbcc93" data-element_type="widget" data-widget_type="html.default">
+				<div class="elementor-widget-container">
+
+
+
+<!-- API -->
+<style>
+  /* ESTILOS PERSONALIZADOS DO PLAYER DE VIDEO */
+  .plyr__video-wrapper {
+    border-radius: 0px;
+    overflow: hidden;
+  }
+  /* Altera o estilo do botão de play */
+  .plyr__control--overlaid {
+    content: "\f144"; /* Ícone de play desejado, substitua pelo seu */
+    font-family: "Font Awesome"; /* Use a fonte de ícones desejada */
+    font-size: 2em; /* Tamanho do ícone */
+    color: #fff; /* Cor do ícone */
+  }
+
+  /* Estilizações para a barra de progresso falsa */
+  .fake-progress-bar {
+    top: -10px;
+    position: relative; /* Adiciona posição relativa para controlar os elementos filhos */
+    width: 100%;
+    height: 10px;
+    background-color: #cccccc00;
+    /* margin-top: 10px; */
+  }
+
+  .fake-progress, .real-progress {
+    position: absolute; /* Posicionamento absoluto para controlar a sobreposição */
+    top: 0;
+    height: 100%;
+  }
+
+  .fake-progress {
+    width: 0;
+    background-color: #8000ff; /* Cor laranja */
+    /* transition: all 1000ms cubic-bezier(0.120, 0.825, 0.375, 1.650); */
+  }
+
+  .real-progress {
+    width: 0; /* Começa com largura zero */
+    background-color: #8000ff; /* Cor verde para o progresso real */
+  }
+
+  .plyr__controls {
+    display: none ;
+  }
+  .plyr--full-ui.plyr--video .plyr__control--overlaid {
+    display: none ;
+  }
+  .ativar-audio{
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          z-index: 999;
+          transform: translate(-50%, -50%);
+          width: 50%;
+          height: 80%;
+          rotate: 0deg;
+          border-width: 0px;
+          border-color: #FFFFFF;
+          border-radius: 10.6px;
+          border-style: solid;
+          background-color: rgb(239 232 23 / 75%);
+          opacity: 1;
+          cursor: pointer;
+          color: #000000;
+  }
+  .plyr__video-embed .ytp-chrome-top,
+  .plyr__video-embed .ytp-cued-thumbnail-overlay {
+    display: none !important;
+    z-index: 0 !important;
+  }
+  .ytp-hide-controls:not(.ytp-mweb-player) .ytp-watermark {
+    display: none !important;
+    z-index: 0 !important;
+  }
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0);
+    z-index: 10; /* Certifique-se de que o overlay esteja acima do vídeo */
+    cursor: pointer; /* Altera o cursor para indicar que é clicável */
+  }
+  .botaoAcao {
+      display: none;
+      transition: transform 0.2s ease-in-out;
+      }
+  .botaoAcao:hover {
+  
+      transform: scale(0.9);
+    }
+  </style>
+<!-- PLAYER DE VIDEO COMECA AQUI -->
+<div id="vslconvert">
+<div id="videoframe" style="position: relative;">
+  <video class="plyr__video-embed" id="player" playsinline controls preload="auto">
+    <source src="https://s3.vslconvert.com/vsl/COSTA%20RICA%20IN%204K%2060fps%20HDR%20%28ULTRA%20HD%29.mp4" type="video/mp4" />
+  </video>
+              <!-- HTML do botão de play personalizado -->
+  <div class="ativar-audio" style="display: none;">
+      <span id="smart_autoplay_element_63ed5d75194dfe000c295191_1" class="smartplayer-autoplay-text-element smartplayer-smart-element smartplayer-autoplay-element" style="transform: translate(-50%, -50%); display:block;left: 50%;top: 45%;position:relative;z-index:2;width:100%; rotate:0deg; text-align:center;font-weight:700; opacity:1;font-size: 640%;"><i class="fa-regular fa-circle-play"></i></span>
+      <span id="smart_autoplay_element_63ed5d75194dfe000c295191_2" class="smartplayer-autoplay-text-element smartplayer-smart-element smartplayer-autoplay-element" style="transform: translate(-50%, -50%); display:block;left: 50%;top: 86%;position:absolute;z-index:3;width:100%; rotate:0deg; text-align:center;font-weight:700; opacity:1;">Seu video já começou!</span>
+  </div>
+</div>
+<!-- Barra de progresso falsa -->
+<div class="fake-progress-bar">
+  <div class="fake-progress"></div>
+  <div class="real-progress"></div>
+</div>
+<!-- Incluindo Plyr JS -->
+<script src="https://cdn.plyr.io/3.7.8/plyr.js"></script>
+</div>
+<!-- SCRIPT DO PLAYER DE VIDEO -->
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+  const player = new Plyr('#player', {
+      fullscreen: { enabled: false },
+      speed: { selected: 1.25, options: [0.5, 0.75, 1, 1.25, 1.5, 1.75, 2, 4] },
+      quality: { default: 480, options: [4320, 2880, 2160, 1440, 1080, 720, 576, 480, 360, 240] },
+      playsinline: true
+      // youtube: { noCookie: false, rel: 0, showinfo: 0, iv_load_policy: 3, modestbranding: 1 }
+  });
+
+  // CONFIGURACOES DO PLAYER
+  const ativarAudio = document.querySelector('.ativar-audio');
+  const fakeProgress = document.querySelector('.fake-progress');
+  const divVslConvert = document.getElementById('vslconvert');
+  const realProgressTime = 0.50; // Tempo em que a barra real-progress deve aparecer (50%)
+  let realProgressCreated = false; // Flag para indicar se a segunda barra de progresso foi criada
+  
+  let botoesAcao        = true;
+  let minutoBotaoAcao   = 0;
+  let segundosBotaoAcao = 5;
+  let smartAutoPlay     = true;
+
+  // SMART-AUTOPLAY
+  if(smartAutoPlay){
+    player.on('ready', () => {
+      player.play();
+      player.muted = true;
+      fakeProgress.style.display = 'none';
+      ativarAudio.style.display  = 'block';
+
+    const videoElement = player.elements.container;
+
+        videoElement.addEventListener('click', () => {
+            if (player.playing) {
+                player.pause();
+            } else {
+                player.play();
+            }
+        });
+
+        var jaDesmutado = false;
+       
+        // Adiciona um evento de clique ao botão de áudio
+        ativarAudio.addEventListener("click", function(event) {
+            event.stopPropagation(); // Impede que o evento de clique se propague para elementos pai
+
+            if (!jaDesmutado) {
+                fakeProgress.style.display = 'block';
+                ativarAudio.style.display = "none";
+
+                // Define a propriedade "currentTime" para reiniciar o vídeo do começo
+                player.currentTime = 0;
+
+                // Define a propriedade "muted" para desmutar o vídeo
+                player.muted = false;
+
+                // Inicia a reprodução do vídeo
+                player.play();
+
+                // Define a variável "jaDesmutado" como verdadeira para impedir que o vídeo seja desmutado novamente
+                jaDesmutado = true;
+            }
+        });
+    });
+  }
+
+  // BOTAO DE ACAO
+  if(botoesAcao){
+    function minutosParaSegundos(minutos, segundos) {
+        return minutos * 60 + segundos;
+    }
+    const pitch = minutosParaSegundos(minutoBotaoAcao, segundosBotaoAcao);
+
+    // Cria um novo elemento âncora
+    const botaoAcao = document.createElement('a');
+    botaoAcao.id = 'enviar';
+    botaoAcao.className = 'botaoAcao';
+    botaoAcao.style.display = 'none';
+    botaoAcao.href = '';
+    botaoAcao.textContent = 'Quero realizar o meu cadastro!';
+    divVslConvert.appendChild(botaoAcao);
+
+    let botaoExibido = false;
+    player.on('timeupdate', () => {
+        const currentTime = player.currentTime;
+
+        // Verifica se o tempo atual do vídeo é igual a 5:45 (345 segundos)
+        if (!botaoExibido && currentTime >= pitch) {
+            // for (var i = 0; i < botaoAcao.length; i++) {
+                botaoAcao.style.display = "block";
+            // }
+            botaoExibido = true; // Define que o botão foi exibido
+        }
+    });
+  }
+
+  player.on('play', event => {
+    // remove o overlay quando da play
+    var overlay = document.querySelector('#player > div.overlay');
+    overlay.remove();
+
+    // esconde botao de play padrao
+    const controls = document.querySelector('.plyr--full-ui.plyr--video .plyr__control--overlaid');
+        if (controls) {
+            controls.style.display = 'none';
+        }
+    
+    });
+
+ player.on('pause', event => {
+    // reaparece o botao de play padrao quando pausa
+      const controls = document.querySelector('.plyr--full-ui.plyr--video .plyr__control--overlaid');
+      if (controls) {
+          controls.style.display = 'block';
+      }
+   // Cria o overlay e adiciona à tela do player
+  var overlay = document.createElement('div');
+      overlay.className = 'overlay';
+      player.elements.container.appendChild(overlay);
+
+      
+  });
+  
+
+  // TURBO (BARRA RÁPIDA DE PROGRESSO)
+  
+  player.on('timeupdate', () => {
+      const currentTime = player.currentTime;
+      const duration = player.duration;
+
+      const fakeProgressBarTime = duration / 5; // Tempo em que a barra fake chega ao meio do vídeo
+      let animationInProgress = false;
+      let fakeAnimationInProgress = true;
+
+      const maxProgress = realProgressTime * 100; // Valor máximo do progresso
+      const progressRatio = currentTime / (fakeProgressBarTime * realProgressTime); // Proporção de progresso
+
+      // Ajusta a proporção de progresso para seguir uma função exponencial decrescente
+      const adjustedProgress = Math.pow(progressRatio, 0.5); // 0.5 é um fator de ajuste que pode ser ajustado conforme necessário
+
+      // Verifica se a barra fake atingiu 50% de sua largura
+      if (currentTime >= fakeProgressBarTime * realProgressTime) {
+          fakeAnimationInProgress = false; // Para a animação da barra fake
+      } else {
+          
+        // Calcula o progresso com base na proporção ajustada e no valor máximo
+        fakeProgressPercent = adjustedProgress * maxProgress;
+
+        // Define a largura da barra de progresso
+        fakeProgress.style.width = `${fakeProgressPercent}%`;
+      }
+
+      // TODO - Arrumar para a barra secundaria aparecer somente se o video estiver rodando desmutado
+      if (!realProgressCreated && player.playing && currentTime >= fakeProgressBarTime * realProgressTime) {
+          // Cria a barra de progresso real
+          const realProgress = document.createElement('div');
+          realProgress.className = 'real-progress';
+          fakeProgress.parentNode.appendChild(realProgress);
+          realProgressCreated = true;
+      }
+
+      if (realProgressCreated) {
+          const realProgress = document.querySelector('.real-progress');
+          const realProgressPercent = ((currentTime - (fakeProgressBarTime * realProgressTime)) / (duration - (fakeProgressBarTime * realProgressTime))) * (realProgressTime * 100) + (realProgressTime * 100);
+          realProgress.style.width = `${realProgressPercent}%`;
+      }
+
+      // Se o vídeo terminar, para a animação
+      if (currentTime >= duration) {
+          animationInProgress = false;
+          fakeAnimationInProgress = false;
+      }
+
+      // Reinicia a variável jaDesmutado quando o vídeo termina
+      player.on('ended', () => {
+          jaDesmutado = false;
+          fakeProgressPercent = 0;
+          realProgressCreated = false;
+      });
+  });
+});
+</script>
+<!-- API -->
+<!-- FIM DO HTML DO PLAYER -->
+
+				</div>
+				</div>
+				<div class="elementor-element elementor-element-5eaa4ee6 elementor-widget elementor-widget-text-editor" data-id="5eaa4ee6" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<p style="text-align: center; font-size: 15px; font-weight: 400; color: #1f1f1f; margin-top:10px;">
+	Assista até o final para que seu acesso seja liberado
+</p>
+							
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-6a7e294c atrasado elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="6a7e294c" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-7cf314f5" data-id="7cf314f5" data-element_type="column" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+			<div class="elementor-widget-wrap">
+									</div>
+		</div>
+							</div>
+		</section>
+	</div>
+
+			<!-- BOTAO DE ACAO -->
+			<style id="skip-link-styles">
+				
+			  </style>
+			
+			</div>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-24b2ff4 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="24b2ff4" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-64f50365" data-id="64f50365" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-4ee57b24 elementor-widget elementor-widget-spacer" data-id="4ee57b24" data-element_type="widget" data-widget_type="spacer.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-spacer">
+			<div class="elementor-spacer-inner"></div>
+		</div>
+				</div>
+				</div>
+				<div class="elementor-element elementor-element-4e5cae94 elementor-widget elementor-widget-spacer" data-id="4e5cae94" data-element_type="widget" data-widget_type="spacer.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-spacer">
+			<div class="elementor-spacer-inner"></div>
+		</div>
+				</div>
+				</div>
+					</div>
+		</div>
+							</div>
+		</section>
+		
+			
+							</div>
+
+
+	</body>
+</html>
