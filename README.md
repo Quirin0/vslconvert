@@ -3,7 +3,7 @@
 ```bash
  <link rel="stylesheet" href="https://cdn.plyr.io/3.6.8/plyr.css" />
 ```
-* Inclua o código do index.html apartir da linha ``80`` até a linha ``380`` no seu site projeto.
+* Inclua o código do ``index.html`` apartir da linha ``80`` até a linha ``380`` no seu site projeto.
 
 * Substitua o link do video na linha ``180`` pelo link do video que você quiser incluir
 ```bash
